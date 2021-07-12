@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="CumpomVenda" pageWidth="595" pageHeight="842" whenNoDataType="BlankPage" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="bb77fc55-5c93-4a23-b99b-fa836ef84dd8">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.report.description" value=""/>
+	<import value="model.Itens_Venda"/>
+	<import value="model.Venda_Model"/>
+	<import value="model.Cliente_Model"/>
+	<queryString language="ejbql">
+		<![CDATA[]]>
+	</queryString>
+	<field name="enderecoCliente" class="java.lang.String">
+		<fieldDescription><![CDATA[enderecoCliente]]></fieldDescription>
+	</field>
+	<field name="item" class="java.lang.String">
+		<fieldDescription><![CDATA[item]]></fieldDescription>
+	</field>
+	<field name="telefone" class="java.lang.String">
+		<fieldDescription><![CDATA[telefone]]></fieldDescription>
+	</field>
+	<field name="data" class="java.util.Date">
+		<fieldDescription><![CDATA[data]]></fieldDescription>
+	</field>
+	<field name="loja" class="java.lang.String">
+		<fieldDescription><![CDATA[loja]]></fieldDescription>
+	</field>
+	<field name="valor" class="java.lang.Double">
+		<fieldDescription><![CDATA[valor]]></fieldDescription>
+	</field>
+	<field name="nome" class="java.lang.String">
+		<fieldDescription><![CDATA[nome]]></fieldDescription>
+	</field>
+	<field name="numCondicional" class="java.lang.Integer">
+		<fieldDescription><![CDATA[numCondicional]]></fieldDescription>
+	</field>
+	<field name="telefoneCliente" class="java.lang.String">
+		<fieldDescription><![CDATA[telefoneCliente]]></fieldDescription>
+	</field>
+	<field name="enderecoLoja" class="java.lang.String">
+		<fieldDescription><![CDATA[enderecoLoja]]></fieldDescription>
+	</field>
+	<field name="celular" class="java.lang.String">
+		<fieldDescription><![CDATA[celular]]></fieldDescription>
+	</field>
+	<field name="quantidade" class="java.lang.Integer">
+		<fieldDescription><![CDATA[quantidade]]></fieldDescription>
+	</field>
+	<field name="cidadeCliente" class="java.lang.String">
+		<fieldDescription><![CDATA[cidadeCliente]]></fieldDescription>
+	</field>
+	<field name="valorCondicional" class="java.lang.Double">
+		<fieldDescription><![CDATA[valorCondicional]]></fieldDescription>
+	</field>
+	<variable name="subTotal" class="java.lang.Double">
+		<variableExpression><![CDATA[$F{quantidade} * $F{valor}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="87" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="60" width="554" height="26" uuid="a6483822-4990-4236-a4f8-3bde16c59023"/>
+				<box padding="0">
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="Arial Black" size="16"/>
+				</textElement>
+				<text><![CDATA[Comprovante de Condicional]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="0" width="554" height="30" uuid="d3a84c45-ec55-4a7b-9a19-b3a63980f983"/>
+			</rectangle>
+			<textField>
+				<reportElement x="0" y="0" width="554" height="30" uuid="10b2163a-52e2-4a31-93a1-eea83cf8a5f5"/>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Black" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{loja}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="30" width="554" height="30" uuid="4b16af3c-4ae0-453f-86a3-0632eb1ab012"/>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Black" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{enderecoLoja} +"\n" + $F{telefone}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="55" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="-1" width="554" height="55" uuid="bc7a7ad6-acbb-40d2-86c6-6027d4152bb0"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="30" y="0" width="30" height="20" uuid="f510e31a-c23d-4e61-9f6e-9865faaef84d"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
+					<font fontName="Arial" size="12" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Nº: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="37" width="50" height="18" uuid="627e3bd8-0281-4fd1-bd48-3898f29060ac"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
+					<font fontName="Arial" size="12" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Data: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="20" width="50" height="17" uuid="79fb6df1-d92c-4816-ac10-bd263adc4ade"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
+					<font fontName="Arial" size="12" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Cliente: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="0" width="71" height="20" uuid="37fd7b3a-f97f-49ad-8af9-4cfd323572d9"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Fone: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="20" width="71" height="17" uuid="c4c6c395-5ac8-4d71-9503-19af9dfb4b3a"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Endereço: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="37" width="71" height="18" uuid="b1e97120-e9e1-4352-879b-2aeb5794ada0"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Cidade: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="60" y="20" width="240" height="17" uuid="2115c4c8-f2f8-4c67-805a-9de5db99510c"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="60" y="0" width="240" height="20" uuid="650cc887-8c3d-4c02-ac92-d04aaaec84fc"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{numCondicional}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="60" y="37" width="240" height="16" uuid="9a123d41-4593-4332-9b4f-3aa346c0ce69"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{data}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="371" y="0" width="183" height="20" uuid="803ba6a4-6a91-471b-aa0f-49d99f287e63"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{telefoneCliente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="371" y="19" width="183" height="18" uuid="817f6663-a196-4cd0-b011-7226a3623727"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{enderecoCliente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="371" y="37" width="183" height="16" uuid="c10b6159-afaa-4d1b-859c-458a75e35196"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{cidadeCliente}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="-1" width="280" height="21" uuid="7ad4f6cf-0db7-4af6-9db2-c222576e953c"/>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="Arial Black" size="12"/>
+				</textElement>
+				<text><![CDATA[Item]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="280" y="-1" width="100" height="21" uuid="9bc18b39-50d6-47b3-ad9e-2504e6289bd3"/>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="Arial Black" size="12"/>
+				</textElement>
+				<text><![CDATA[Qtd]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="380" y="-1" width="100" height="21" uuid="b805c7f3-ea29-4d29-a105-af00642f75cc"/>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="Arial Black" size="12"/>
+				</textElement>
+				<text><![CDATA[Valor Unit.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="480" y="-1" width="74" height="21" uuid="16959fc2-7266-4705-b836-25b12c7934a5"/>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="Arial Black" size="12"/>
+				</textElement>
+				<text><![CDATA[Sub-Total]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<property name="com.jaspersoft.studio.layout"/>
+			<textField>
+				<reportElement x="0" y="0" width="280" height="20" uuid="623207a6-2f8b-4886-9dff-b7f6c2d15e44">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="aec1e108-9be4-4e29-8c9c-9af1ba9eb7d9"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{item}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="280" y="0" width="100" height="20" uuid="ea457655-c610-4cb9-baff-8456d7e0db5d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d9186576-8d0a-457a-938a-9495f01ecbe0"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{quantidade}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤#,##0.00;¤-#,##0.00">
+				<reportElement x="380" y="0" width="100" height="20" uuid="4b7ed076-6004-4ac5-9884-92e53e0080b8">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b76f8baf-e71a-4325-afbb-5404404b014d"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{valor}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤#,##0.00;¤-#,##0.00">
+				<reportElement x="480" y="0" width="74" height="20" uuid="78fca1e6-cb0b-4233-9811-e6131a13a4ec"/>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{valor} * $F{quantidade}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="150" splitType="Stretch">
+			<staticText>
+				<reportElement x="380" y="0" width="100" height="18" uuid="6dca45b5-537d-4be2-befa-4045e7a7d5bd"/>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Black" size="12"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Total Venda:]]></text>
+			</staticText>
+			<textField pattern="¤#,##0.00;¤-#,##0.00">
+				<reportElement x="480" y="0" width="74" height="18" uuid="81fa6364-5758-4757-b022-ec6823266c93"/>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{valorCondicional}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="320" y="120" width="234" height="30" uuid="b1ccf91e-c4e5-493e-8193-96c1f365cb10"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[________________________________________
+Assinatura do Cliente]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>
